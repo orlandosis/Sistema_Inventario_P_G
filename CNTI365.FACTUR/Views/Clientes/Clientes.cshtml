@@ -1,0 +1,146 @@
+﻿@model modelList
+@using CNTI365.FACTUR.Models
+@{
+    ViewBag.Title = "Clientes";
+}
+
+<br />
+<br />
+<br />
+
+<div class="panel panel-info">
+
+    <div class="panel-heading">
+        <label><b><span id="lblinicial"></span></b></label>
+
+        <button type="button" class="btn btn-danger btn-sm" style="float:right;" id="cerrarModulo"><i class="fa fa-window-close"></i></button>
+
+    </div>
+
+    <div class="panel-body">
+
+        <div id="divlistacliente">
+            <div class="col-md-12">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-info btn-sm" style="float:right;" id="newcliente"><i class="fa fa-plus-square"></i> Nuevo</button>
+                </div>
+
+            </div>
+
+            <div class="col-md-12">
+                <hr />
+                <div class="col-md-12">
+
+                    <table class="table table-condensed table-bordered table-hover dt-reponsive tablas">
+                        <thead>
+                            <tr>                                
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Telefono</th>
+                                <th>Direccion</th>
+                                <th>NIT</th>
+                                <th>opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="divnewcliente">
+
+            <div class="col-md-12">
+
+                <div class="col-md-8">
+                    <span><label><b>NOMBRE:</b></label></span>
+                    <input type="text" class="form-control" id="txtprazonsocial" placeholder="Ingrese el nombre" required />
+                    <span id="msjrazonsocial"></span>
+                </div>
+
+                <div class="col-md-4">
+                    <span><label><b>EMAIL:</b></label></span>
+                    <input type="text" class="form-control" id="txtpemail" placeholder="Ingrese el email" required />
+                    <span id="msjemail"></span>
+                </div>
+
+            </div>
+
+            <div class="col-md-12">
+                <br />
+                <div class="col-md-4">
+                    <span><label><b>TELEFONO:</b></label></span>
+                    <input type="text" class="form-control" id="txtptelefono" placeholder="Ingrese el telefono" required onkeypress="return solonumeros(event)" />
+                    <span id="msjtelefonos"></span>
+                </div>
+                <div class="col-md-4">
+                    <span><label><b>NIT </b></label></span>
+                    <input type="text" class="form-control" id="txt_nit placeholder="Ingrese NIT" />
+                    <span id=""></span>
+                </div>
+
+
+            </div>
+
+            <div class="col-md-12">
+                <br />
+                <div class="col-md-8">
+                    <span><label><b>DIRECCION:</b></label></span>
+                    <input type="text" class="form-control" id="txtpdireccion" placeholder="Ingrese la direccion" />
+                    <span id="msjdireccion"></span>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <br />
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-success " id="btnregistrar"> <i class=" fa fa-floppy-o"></i> Registrar</button>
+                    <button type="button" class="btn btn-danger" id="btnvolver"> <i class=" fa fa-reply"></i> Volver</button>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(".divnewcliente").hide();
+        $(".diveditcliente").hide();
+        $(".divlistacliente").show();
+        $("#lblinicial").html("Clientes");
+
+    })
+
+    $("#newcliente").on("click", function () {
+
+        $("#lblinicial").html("Nuevo cliente");
+        $(".divnewcliente").show();
+        $("#divlistacliente").hide();
+    })
+
+
+    $("#cerrarModulo").on("click", function () {
+        window.location = fnBaseURLWeb("Panel/Panel");
+    })
+
+    $("#btnvolver").on("click", function () {
+        window.location = fnBaseURLWeb("Clientes/Clientes");
+    })
+
+</script>
+
+
+
+

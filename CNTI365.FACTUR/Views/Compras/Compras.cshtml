@@ -1,0 +1,133 @@
+﻿@model modelList
+@using CNTI365.FACTUR.Models
+@{
+    ViewBag.Title = "Compras";
+}
+
+<br />
+<br />
+<br />
+
+<div class="panel panel-info">
+
+    <div class="panel-heading">
+        <label><b><span id="lblinicial"></span></b></label>
+
+        <button type="button" class="btn btn-danger btn-sm" style="float:right;" id="cerrarModulo"><i class="fa fa-window-close"></i></button>
+
+    </div>
+
+    <div class="panel-body">
+
+        <div id="divlistacompra">
+            <div class="col-md-12">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-info btn-sm" style="float:right;" id="newcompra"><i class="fa fa-plus-square"></i> Nuevo</button>
+                </div>
+
+            </div>
+
+            <div class="col-md-12">
+                <hr />
+                <div class="col-md-12">
+
+                    <table class="table table-condensed table-bordered table-hover dt-reponsive tablas">
+                        <thead>
+                            <tr>
+                                <th>Descripcion</th>
+                                <th>Cantidad</th>
+                                <th>Fecha de Compra</th>
+                                <th>Precio</th>                                
+                                <th>opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="divnewcompra">
+
+            <div class="col-md-12">
+
+                <div class="col-md-8">
+                    <span><label><b>DESCRIPCION:</b></label></span>
+                    <input type="text" class="form-control" id="" placeholder="Ingrese descripcion" required />
+                    <span id="msjrazonsocial"></span>
+                </div>
+
+                <div class="col-md-4">
+                    <span><label><b>CANTIDAD:</b></label></span>
+                    <input type="text" class="form-control" id="" placeholder="Ingrese la cantidad" required />
+                    <span id="msjemail"></span>
+                </div>
+
+            </div>
+
+            <div class="col-md-12">
+                <br />
+                <div class="col-md-4">
+                    <span><label><b>FECHA DE COMPRA:</b></label></span>
+                    <input type="text" class="form-control" id="" placeholder="Fecha de compra" required onkeypress="return solonumeros(event)" />
+                    <span id="msjtelefonos"></span>
+                </div>
+                <div class="col-md-4">
+                    <span><label><b>PRECIO </b></label></span>
+                    <input type="text" class="form-control" id="" placeholder="Ingrese precio" />
+                    <span id=""></span>
+                </div>
+
+
+            </div>
+
+            
+
+            <div class="col-md-12">
+                <br />
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-success " id="btnregistrar"> <i class=" fa fa-floppy-o"></i> Registrar</button>
+                    <button type="button" class="btn btn-danger" id="btnvolver"> <i class=" fa fa-reply"></i> Volver</button>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(".divnewcompra").hide();
+        $(".diveditcompra").hide();
+        $(".divlistacompra").show();
+        $("#lblinicial").html("Compras");
+
+    })
+
+    $("#newcompra").on("click", function () {
+
+        $("#lblinicial").html("Nueva Compra");
+        $(".divnewcompra").show();
+        $("#divlistacompra").hide();
+    })
+
+
+    $("#cerrarModulo").on("click", function () {
+        window.location = fnBaseURLWeb("Panel/Panel");
+    })
+    $("#btnvolver").on("click", function () {
+        window.location = fnBaseURLWeb("Compras/Compras");
+    })
+
+</script>
+
